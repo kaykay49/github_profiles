@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}My profile{% endblock %}
+
+{% block content %}
+  <h2>{{ user.first_name }} {{ user.last_name }} (@{{ user.username }})</h2>
+  <i>{{ user.Profile.followers }} followers <br>
+  Profile Last updated:{{ user.Profile.last_updated }}</i><a href= {% url 'update' %}>(Update now)</a>
+  <ul>
+  {% for repo in repos %}
+	<li> {{ repo.name }}-{{ repo.stars }}</li>
+  {% endfor %}
+  </ul>
+{% endblock %}

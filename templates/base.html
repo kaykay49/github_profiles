@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body {
+      background-color: rgb(129, 218, 213);
+    }
+    h1 {
+      color: rgb(163, 8, 8);
+      margin-left: 40px;
+    }
+
+    h4 {
+    font-family: "Lucida Console", "Courier New", monospace;
+  }
+  ul {
+      border: 2px solid rgb(134, 7, 7);
+    }
+    </style>
+  <meta charset="utf-8">
+  <title>{% block title %}outlab4 project{% endblock %}</title>
+</head>
+<body>
+  <main>
+    <h4> Built by 200050065 and 200050092 </h4>
+    <h1>Welcome to Github Profiles!</h1>
+    {% if user.is_authenticated %}
+        <ul>
+        <li><a href = "{% url 'explore' %}">Explore</a></li>
+        <li><a href = "{% url 'my_profile' %}">My Profile</a></li>
+        <li><a href="{% url 'logout' %}">Log Out</a></li>
+        </ul>
+    {% else %}
+        <ul>
+        <li><a href = "{% url 'signup' %}">Sign Up</a></li>
+        <li><a href = "{% url 'login' %}">Log In</a></li>
+        </ul>
+    {% endif %}
+    <div style="font-size: 72px;">
+      <i class="fa fa-github-square"></i>
+    </div>
+    {% block content %}
+    {% endblock %}
+  </main>
+</body>
+</html>

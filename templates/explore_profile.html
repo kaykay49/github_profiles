@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Explore profile{% endblock %}
+
+{% block content %}
+  <h2>{{ user1.first_name }} {{ user1.last_name }} (@{{ user1.username }})</h2>
+  <i>{{ user1.Profile.followers }} followers <br>
+  Profile Last updated:{{ user1.Profile.last_updated }}</i>
+  <ul>
+  {% for repo in repos %}
+	<li> {{ repo.name }}-{{ repo.stars }}</li>
+  {% endfor %}
+  </ul>
+{% endblock %}
